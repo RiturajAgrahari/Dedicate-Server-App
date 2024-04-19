@@ -37,5 +37,9 @@ def execute(request):
     output = subprocess.check_output(command, shell=True)
     print(output.decode('utf-8'))
 
+    command = ''
+    output = subprocess.check_output(command, shell=True)
+    print(output.decode('utf-8'))
+
     return render(request, "home.html")
 
