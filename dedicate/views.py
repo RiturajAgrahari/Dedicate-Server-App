@@ -9,7 +9,7 @@ def home_page(request):
 
 
 def extract(request):
-    command = 'unzip media/server/server.zip'
+    command = 'unzip media/server/server.zip -d DedicateServers/server001'
     output = subprocess.check_output(command, shell=True)
     print(output.decode('utf-8'))
 
