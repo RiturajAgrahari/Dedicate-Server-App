@@ -34,9 +34,8 @@ def enable_execution(request):
 
 def execute(request):
     command = 'nohup ./DedicateServers/server001/LinuxServer/LinuxDedicateTeot.x86_64 &'
-    output = subprocess.check_output(command, shell=True)
+    output = subprocess.Popen(command, shell=True)
     print(output.decode('utf-8'))
-
 
     return render(request, "home.html")
 
