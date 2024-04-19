@@ -33,8 +33,15 @@ def enable_execution(request):
 
 
 def execute(request):
-    command = 'nohup ./DedicateServers/server001/LinuxServer/LinuxDedicateTeot.x86_64 &'
-    output = subprocess.Popen(command, shell=True)
+    # command = 'nohup ./DedicateServers/server001/LinuxServer/LinuxDedicateTeot.x86_64 &'
+    # subprocess.Popen(command, shell=True)
+
+    # Define the command
+    command = ['nohup', './DedicateServers/server001/LinuxServer/LinuxDedicateTeot.x86_64']
+
+    # Use subprocess.Popen() without shell=True
+    subprocess.Popen(command)
+
 
     return render(request, "home.html")
 
