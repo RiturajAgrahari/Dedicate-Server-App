@@ -15,3 +15,11 @@ def extract(request):
 
     return render(request, "home.html")
 
+
+def list_directory(request):
+    command = 'ls'
+    output = subprocess.check_output(command, shell=True)
+    print(output.decode('utf-8'))
+
+    return render(request, "home.html")
+
