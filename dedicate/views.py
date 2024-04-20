@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import subprocess
+import os
 
 # Create your views here.
 
@@ -36,12 +37,13 @@ def execute(request):
     # command = 'nohup ./DedicateServers/server001/LinuxServer/LinuxDedicateTeot.x86_64 &'
     # subprocess.Popen(command, shell=True)
 
-    # Define the command
-    command = ['nohup', './DedicateServers/server001/LinuxServer/LinuxDedicateTeot.x86_64']
+    # command = ['nohup', './DedicateServers/server001/LinuxServer/LinuxDedicateTeot.x86_64']
+    # subprocess.Popen(command)
 
-    # Use subprocess.Popen() without shell=True
-    subprocess.Popen(command)
-
+    subprocess.Popen(['nohup', './DedicateServers/server001/LinuxServer/LinuxDedicateTeot.x86_64'],
+                     stdout=open('/dev/null', 'w'),
+                     stderr=open('logfile.log', 'a'),
+                     preexec_fn=os.setpgrp)
 
     return render(request, "home.html")
 
